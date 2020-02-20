@@ -1,0 +1,16 @@
+version: '2'
+services:
+  juliestore-mongodb:
+    image: mongo:4.0.13
+    ports:
+      - '27017:27017'
+    command: mongos --configdb juliestore-mongodb-config
+  juliestore-mongodb-node:
+    build:
+      context: .
+      dockerfile: mongodb/MongoDB.Dockerfile
+    command: mongod --replSet rs1 --noprealloc --smallfiles
+  juliestore-mongodb-config:
+    image: mongo:4.0.13
+    container_name: juliestore-mongodb-config
+    command: mongod --noprealloc --smallfiles --configsvr --dbpath /data/db
