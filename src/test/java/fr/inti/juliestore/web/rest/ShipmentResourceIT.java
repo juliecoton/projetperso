@@ -117,7 +117,7 @@ public class ShipmentResourceIT {
 
         // Create the Shipment
         restShipmentMockMvc.perform(post("/api/shipments")
-            .contentType(TestUtil.APPLICATION_JSON)
+            .contentType(TestUtil.APPLICATION_JSON_UTF8)
             .content(TestUtil.convertObjectToJsonBytes(shipment)))
             .andExpect(status().isCreated());
 
@@ -139,7 +139,7 @@ public class ShipmentResourceIT {
 
         // An entity with an existing ID cannot be created, so this API call must fail
         restShipmentMockMvc.perform(post("/api/shipments")
-            .contentType(TestUtil.APPLICATION_JSON)
+            .contentType(TestUtil.APPLICATION_JSON_UTF8)
             .content(TestUtil.convertObjectToJsonBytes(shipment)))
             .andExpect(status().isBadRequest());
 
@@ -158,7 +158,7 @@ public class ShipmentResourceIT {
         // Create the Shipment, which fails.
 
         restShipmentMockMvc.perform(post("/api/shipments")
-            .contentType(TestUtil.APPLICATION_JSON)
+            .contentType(TestUtil.APPLICATION_JSON_UTF8)
             .content(TestUtil.convertObjectToJsonBytes(shipment)))
             .andExpect(status().isBadRequest());
 
@@ -218,7 +218,7 @@ public class ShipmentResourceIT {
             .details(UPDATED_DETAILS);
 
         restShipmentMockMvc.perform(put("/api/shipments")
-            .contentType(TestUtil.APPLICATION_JSON)
+            .contentType(TestUtil.APPLICATION_JSON_UTF8)
             .content(TestUtil.convertObjectToJsonBytes(updatedShipment)))
             .andExpect(status().isOk());
 
@@ -239,7 +239,7 @@ public class ShipmentResourceIT {
 
         // If the entity doesn't have an ID, it will throw BadRequestAlertException
         restShipmentMockMvc.perform(put("/api/shipments")
-            .contentType(TestUtil.APPLICATION_JSON)
+            .contentType(TestUtil.APPLICATION_JSON_UTF8)
             .content(TestUtil.convertObjectToJsonBytes(shipment)))
             .andExpect(status().isBadRequest());
 
@@ -257,7 +257,7 @@ public class ShipmentResourceIT {
 
         // Delete the shipment
         restShipmentMockMvc.perform(delete("/api/shipments/{id}", shipment.getId())
-            .accept(TestUtil.APPLICATION_JSON))
+            .accept(TestUtil.APPLICATION_JSON_UTF8))
             .andExpect(status().isNoContent());
 
         // Validate the database contains one less item

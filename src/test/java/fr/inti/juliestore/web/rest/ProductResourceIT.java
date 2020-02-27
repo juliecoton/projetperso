@@ -132,7 +132,7 @@ public class ProductResourceIT {
 
         // Create the Product
         restProductMockMvc.perform(post("/api/products")
-            .contentType(TestUtil.APPLICATION_JSON)
+            .contentType(TestUtil.APPLICATION_JSON_UTF8)
             .content(TestUtil.convertObjectToJsonBytes(product)))
             .andExpect(status().isCreated());
 
@@ -157,7 +157,7 @@ public class ProductResourceIT {
 
         // An entity with an existing ID cannot be created, so this API call must fail
         restProductMockMvc.perform(post("/api/products")
-            .contentType(TestUtil.APPLICATION_JSON)
+            .contentType(TestUtil.APPLICATION_JSON_UTF8)
             .content(TestUtil.convertObjectToJsonBytes(product)))
             .andExpect(status().isBadRequest());
 
@@ -176,7 +176,7 @@ public class ProductResourceIT {
         // Create the Product, which fails.
 
         restProductMockMvc.perform(post("/api/products")
-            .contentType(TestUtil.APPLICATION_JSON)
+            .contentType(TestUtil.APPLICATION_JSON_UTF8)
             .content(TestUtil.convertObjectToJsonBytes(product)))
             .andExpect(status().isBadRequest());
 
@@ -193,7 +193,7 @@ public class ProductResourceIT {
         // Create the Product, which fails.
 
         restProductMockMvc.perform(post("/api/products")
-            .contentType(TestUtil.APPLICATION_JSON)
+            .contentType(TestUtil.APPLICATION_JSON_UTF8)
             .content(TestUtil.convertObjectToJsonBytes(product)))
             .andExpect(status().isBadRequest());
 
@@ -210,7 +210,7 @@ public class ProductResourceIT {
         // Create the Product, which fails.
 
         restProductMockMvc.perform(post("/api/products")
-            .contentType(TestUtil.APPLICATION_JSON)
+            .contentType(TestUtil.APPLICATION_JSON_UTF8)
             .content(TestUtil.convertObjectToJsonBytes(product)))
             .andExpect(status().isBadRequest());
 
@@ -279,7 +279,7 @@ public class ProductResourceIT {
             .imageContentType(UPDATED_IMAGE_CONTENT_TYPE);
 
         restProductMockMvc.perform(put("/api/products")
-            .contentType(TestUtil.APPLICATION_JSON)
+            .contentType(TestUtil.APPLICATION_JSON_UTF8)
             .content(TestUtil.convertObjectToJsonBytes(updatedProduct)))
             .andExpect(status().isOk());
 
@@ -303,7 +303,7 @@ public class ProductResourceIT {
 
         // If the entity doesn't have an ID, it will throw BadRequestAlertException
         restProductMockMvc.perform(put("/api/products")
-            .contentType(TestUtil.APPLICATION_JSON)
+            .contentType(TestUtil.APPLICATION_JSON_UTF8)
             .content(TestUtil.convertObjectToJsonBytes(product)))
             .andExpect(status().isBadRequest());
 
@@ -321,7 +321,7 @@ public class ProductResourceIT {
 
         // Delete the product
         restProductMockMvc.perform(delete("/api/products/{id}", product.getId())
-            .accept(TestUtil.APPLICATION_JSON))
+            .accept(TestUtil.APPLICATION_JSON_UTF8))
             .andExpect(status().isNoContent());
 
         // Validate the database contains one less item

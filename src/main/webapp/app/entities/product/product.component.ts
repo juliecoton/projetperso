@@ -25,6 +25,8 @@ export class ProductComponent implements OnInit, OnDestroy {
   ascending!: boolean;
   ngbPaginationPage = 1;
 
+  filter: string;
+
   constructor(
     protected productService: ProductService,
     protected activatedRoute: ActivatedRoute,
@@ -94,6 +96,16 @@ export class ProductComponent implements OnInit, OnDestroy {
       result.push('id');
     }
     return result;
+  }
+
+  transition(): void {
+    this.router.navigate(['/entities/product'], {
+      queryParams: {
+        page: this.page,
+        sort: this.predicate + ',' + (this.ascending ? 'asc' : 'desc')
+      }
+    });
+    this.loadPage();
   }
 
   protected onSuccess(data: IProduct[] | null, headers: HttpHeaders, page: number): void {
