@@ -102,10 +102,11 @@
   font-weight: normal;
 }
 
-.loading {
+.loadingj {
   display: inline-block;
-  width: 1000px;
+  width: 100%;
   height: 500px;
-  background: url('../../content/images/loading.gif') no-repeat center top;
+  background: url('loading.gif') no-repeat center center;
   background-size: contain;
+  margin-top: 10%;
 }

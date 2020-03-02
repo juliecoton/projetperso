@@ -5,7 +5,7 @@
         <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-product" [routerLink]="['/product/new']">
             <fa-icon icon="plus"></fa-icon>
             <span  >
-            Créer un nouveau produit
+            Cr�er un nouveau produit
             </span>
         </button>
     </h2>
@@ -18,61 +18,50 @@
         <span >Pas de produit trouvé</span>
     </div>
 
-    <div class="table-responsive" id="entities" *ngIf="products?.length > 0">
         <div *ngIf="products">
 
-<div class=" mb-2 d-flex justify-content-end align-items-center">
-	
-	<span class="mr-2 col-2">Recherche</span>
+            <div class=" mb-2 d-flex justify-content-end align-items-center">
 
-    <input type="search" class="form-control" [(ngModel)]="filter">
-
-    <span class="mx-2 col-1">Trier par</span>
-
-    <div 
-class="btn-group"
- role="group"
-
-        
-jhiSort [(predicate)]="predicate" [(ascending)]="reverse"
-
-                [callback]="transition.bind(this)">
-
-        <button type="button" class="btn btn-light" jhiSortBy="name">
-
-            <span >Nom</span>
-
-            <span class="fa fa-sort"></span>
-
-        </button>
-
-        <button type="button" class="btn btn-light" jhiSortBy="price">
-
-            <span >Prix</span>
-
-            <span class="fa fa-sort"></span>
-
-        </button>
-
-        <button type="button" class="btn btn-light" jhiSortBy="size">
-
-            <span >Taille</span>
-
-            <span class="fa fa-sort"></span>
-
-        </button>
-
-        <button type="button" class="btn btn-light" jhiSortBy="productCategory.id">
-
-            <span  >Categorie</span>
-
-            <span class="fa fa-sort"></span>
-
-        </button>
-
-    </div>
-
-</div>
+                <span class="mx-2 col-1">Sort by</span>
+            
+                <div class="btn-group" role="group" jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="transition.bind(this)">
+            
+                    <button type="button" class="btn btn-light" jhiSortBy="name">
+            
+                        <span >Nom</span>
+            
+                        <span class="fa fa-sort"></span>
+            
+                    </button>
+            
+                    <button type="button" class="btn btn-light" jhiSortBy="price">
+            
+                        <span >Prix</span>
+            
+                        <span class="fa fa-sort"></span>
+            
+                    </button>
+            
+                    <button type="button" class="btn btn-light" jhiSortBy="size">
+            
+                        <span >Taille</span>
+            
+                        <span class="fa fa-sort"></span>
+            
+                    </button>
+            
+                    <button type="button" class="btn btn-light" jhiSortBy="productCategory.id">
+            
+                        <span  >Catégorie</span>
+            
+                        <span class="fa fa-sort"></span>
+            
+                    </button>
+            
+                </div>
+            
+            </div>
+        </div>
 
 
 
@@ -82,8 +71,7 @@ jhiSort [(predicate)]="predicate" [(ascending)]="reverse"
 
             class="list-group-item list-group-item-action flex-column  align-items-start"
 
-            *ngFor="let product of (products | pureFilter:filter:'name');
-             trackBy: trackId">
+            *ngFor="let product of products; trackBy: trackId">
 
             <div class="row">
 
@@ -121,7 +109,7 @@ jhiSort [(predicate)]="predicate" [(ascending)]="reverse"
 
                         Size:
 
-                        <span jhiTranslate="{{'storeApp.Size.' +   product.size}}">{{product.size}}</span>
+                        <span jhiTranslate="{{'juliestore.Size.' +   product.size}}">{{product.size}}</span>
                     </small>
                     <div *jhiHasAnyAuthority="'ROLE_ADMIN'">
 
@@ -151,7 +139,8 @@ jhiSort [(predicate)]="predicate" [(ascending)]="reverse"
             </div>
         </a>
     </div>
-</div>
+
+
         
         
     <div *ngIf="products?.length > 0">

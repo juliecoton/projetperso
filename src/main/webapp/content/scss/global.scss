@@ -163,4 +163,21 @@ ui bootstrap tweaks
   white-space: nowrap;
 }
 
+a {
+  color: #011627;
+}
+
+.footer {
+  /* Copier seulement ces lignes de code pour le FOOTER, mais le garder comme CLASSE cf : https://www.webtolosa.com/2017/09/21/comment-avoir-un-footer-colle-en-bas-de-page/ */
+  position: relative;
+  bottom: 0; /* on le colle en bas */
+  width: 100%;
+  height: auto; /* Hauteur du pied de page */
+  /* + ajouter cette ligne de code (elle permet de fixer le pied de page en bas en adaptant à la taille du contenu)*/
+  clear: both;
+  /* personnalisation*/
+  color: #011627;
+  background-color: #f0f0f0;
+}
+
 /* jhipster-needle-scss-add-main JHipster will add new css style */

@@ -1,11 +1,11 @@
 <div>
     <h2 id="page-heading">
-        <span jhiTranslate="juliestoreApp.productCategory.home.title">Product Categories</span>
+        <span >Catégories</span>
 
         <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-product-category" [routerLink]="['/product-category/new']">
             <fa-icon icon="plus"></fa-icon>
-            <span  jhiTranslate="juliestoreApp.productCategory.home.createLabel">
-            Create a new Product Category
+            <span  >
+           Créer une nouvelle catégorie
             </span>
         </button>
     </h2>
@@ -15,16 +15,16 @@
     <jhi-alert></jhi-alert>
 
     <div class="alert alert-warning" id="no-result" *ngIf="productCategories?.length === 0">
-        <span jhiTranslate="juliestoreApp.productCategory.home.notFound">No productCategories found</span>
+        <span >Pas de catégorie trouvée</span>
     </div>
 
     <div class="table-responsive" id="entities" *ngIf="productCategories?.length > 0">
         <table class="table table-striped" aria-describedby="page-heading">
             <thead>
                 <tr>
-                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
-                    <th scope="col" ><span jhiTranslate="juliestoreApp.productCategory.name">Name</span></th>
-                    <th scope="col" ><span jhiTranslate="juliestoreApp.productCategory.description">Description</span></th>
+                    <th scope="col" ><span >Référence</span></th>
+                    <th scope="col" ><span >Nom</span></th>
+                    <th scope="col" ><span >Description</span></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
