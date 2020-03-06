@@ -42,7 +42,7 @@ export const productRoute: Routes = [
       pagingParams: JhiResolvePagingParams
     },
     data: {
-      authorities: ['ROLE_USER'],
+      authorities: [],
       defaultSort: 'id,asc',
       pageTitle: 'juliestoreApp.product.home.title'
     },

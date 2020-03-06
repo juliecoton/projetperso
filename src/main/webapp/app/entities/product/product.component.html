@@ -5,7 +5,7 @@
         <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-product" [routerLink]="['/product/new']">
             <fa-icon icon="plus"></fa-icon>
             <span  >
-            Cr�er un nouveau produit
+            Créer un nouveau produit
             </span>
         </button>
     </h2>
@@ -22,7 +22,7 @@
 
             <div class=" mb-2 d-flex justify-content-end align-items-center">
 
-                <span class="mx-2 col-1">Sort by</span>
+                <span class="mx-2 col-1">Trier par</span>
             
                 <div class="btn-group" role="group" jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="transition.bind(this)">
             
@@ -42,13 +42,14 @@
             
                     </button>
             
-                    <button type="button" class="btn btn-light" jhiSortBy="size">
+                   <!-- <button type="button" class="btn btn-light" jhiSortBy="size">
             
                         <span >Taille</span>
             
                         <span class="fa fa-sort"></span>
             
                     </button>
+                    -->
             
                     <button type="button" class="btn btn-light" jhiSortBy="productCategory.id">
             
@@ -67,7 +68,7 @@
 
     <div class="list-group">
 
-        <a [routerLink]="['../product', product.id ]" 
+        <a [routerLink]="['../product', product.id , 'view']" 
 
             class="list-group-item list-group-item-action flex-column  align-items-start"
 
@@ -103,28 +104,40 @@
 
                     <small class="mb-1">{{product.description}}</small>
 
-                <p class="mb-1"> {{product.price | currency:'USD'}} </p>
+                <p class="mb-1"> {{product.price | currency:'EUR'}} </p>
 
-                    <small>
+                   <!--<small>
 
-                        Size:
+                        Taille :
 
-                        <span jhiTranslate="{{'juliestore.Size.' +   product.size}}">{{product.size}}</span>
+                        <span >{{product.size}}</span>
                     </small>
+                    --> 
+
+                    <div>
+                        <button type="submit"
+                            [routerLink]="['/product' , product.id, 'view']"
+                            replaceUrl="true"
+                            queryParamsHandling="merge"
+                            class="btn btn-info btn-sm">
+                    <span class="d-none d-md-inline"
+                          >Détails</span>
+                    </button>
+                </div>
+
+
                     <div *jhiHasAnyAuthority="'ROLE_ADMIN'">
 
                         <button type="submit"
-                                [routerLink]="['/', 
-                                    { outlets: { popup: 'product/'+ 
-                                    product.id + '/edit'} }]"
+                                [routerLink]="['/product' , product.id, 'edit']"
                                 replaceUrl="true"
                                 queryParamsHandling="merge"
                                 class="btn btn-primary btn-sm">
                             <span class="fa fa-pencil"></span>
                             <span class="d-none d-md-inline"
-                                  jhiTranslate="entity.action.edit">Edit</span>
+                                  >Modifier</span>
                         </button>
-                        <button type="submit"
+                        <button type="submit" (click) = "delete(product)"
                                 [routerLink]="['/',  { outlets: { popup: 'product/'+ 
                                      product.id + '/delete'} }]"
                                 replaceUrl="true"
@@ -132,7 +145,7 @@
                                 class="btn btn-danger btn-sm">
                             <span class="fa fa-remove"></span>
                             <span class="d-none d-md-inline" 
-                                  jhiTranslate="entity.action.delete">Delete</span>
+                                  >Supprimer</span>
                         </button>
                     </div>
                 </div>

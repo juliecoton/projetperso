@@ -1,39 +1,40 @@
 <div class="row justify-content-center">
     <div class="col-8">
         <div *ngIf="product">
-            <h2><span jhiTranslate="juliestoreApp.product.detail.title">Product</span> {{ product.id }}</h2>
+            <h2><span >Nos Produits - </span> {{ product.name }}</h2>
 
             <hr>
 
             <jhi-alert-error></jhi-alert-error>
 
             <dl class="row-md jh-entity-details">
-                <dt><span jhiTranslate="juliestoreApp.product.name">Name</span></dt>
+                <dt><span >Référence</span></dt>
                 <dd>
-                    <span>{{ product.name }}</span>
+                    <span>{{ product.id }}</span>
                 </dd>
-                <dt><span jhiTranslate="juliestoreApp.product.description">Description</span></dt>
+                <dt><span >Description</span></dt>
                 <dd>
                     <span>{{ product.description }}</span>
                 </dd>
-                <dt><span jhiTranslate="juliestoreApp.product.price">Price</span></dt>
+                <dt><span >Prix</span></dt>
                 <dd>
                     <span>{{ product.price }}</span>
                 </dd>
-                <dt><span jhiTranslate="juliestoreApp.product.size">Size</span></dt>
+                <!-- <dt><span >Taille</span></dt>
                 <dd>
-                    <span jhiTranslate="{{ 'juliestoreApp.Size.' + product.size }}">{{ product.size }}</span>
+                    <span >{{ product.size }}</span>
                 </dd>
-                <dt><span jhiTranslate="juliestoreApp.product.image">Image</span></dt>
+            -->
+                <dt><span >Image</span></dt>
                 <dd>
                     <div *ngIf="product.image">
                         <a (click)="openFile(product.imageContentType!, product.image)">
                             <img [src]="'data:' + product.imageContentType + ';base64,' + product.image" style="max-width: 100%;" alt="product image"/>
                         </a>
-                        {{ product.imageContentType }}, {{ byteSize(product.image) }}
+                        
                     </div>
                 </dd>
-                <dt><span jhiTranslate="juliestoreApp.product.productCategory">Product Category</span></dt>
+                <dt><span >Catégorie</span></dt>
                 <dd>
                     <div *ngIf="product.productCategory">
                         <a [routerLink]="['/product-category', product.productCategory?.id, 'view']">{{ product.productCategory?.id }}</a>
@@ -44,7 +45,7 @@
             <button type="submit"
                     (click)="previousState()"
                     class="btn btn-info">
-                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span >Retour</span>
             </button>
 
             <button type="button"
