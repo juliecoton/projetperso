@@ -9,6 +9,7 @@ import { JuliestoreHomeModule } from './home/home.module';
 import { JuliestoreEntityModule } from './entities/entity.module';
 import { JuliestoreAppNotreHistoireModule } from './notre-histoire/notre-histoire.module';
 import { JuliestoreAppNosProduitsModule } from './nos-produits/nos-produits.module';
+import { JuliestoreAppInfoModule } from './info/info.module';
 // jhipster-needle-angular-add-module-import JHipster will add new module here
 import { MainComponent } from './layouts/main/main.component';
 import { NavbarComponent } from './layouts/navbar/navbar.component';
@@ -25,6 +26,7 @@ import { ErrorComponent } from './layouts/error/error.component';
     JuliestoreHomeModule,
     JuliestoreAppNotreHistoireModule,
     JuliestoreAppNosProduitsModule,
+    JuliestoreAppInfoModule,
     // jhipster-needle-angular-add-module JHipster will add new module here
     JuliestoreEntityModule,
     JuliestoreAppRoutingModule
