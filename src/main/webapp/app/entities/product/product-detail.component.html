@@ -7,6 +7,8 @@
 
             <jhi-alert-error></jhi-alert-error>
 
+            <!-- Contenu descriptif du produit-->
+
             <dl class="row-md jh-entity-details">
                 <dt><span >Référence</span></dt>
                 <dd>
@@ -34,25 +36,40 @@
                         
                     </div>
                 </dd>
+                <!--
                 <dt><span >Catégorie</span></dt>
                 <dd>
                     <div *ngIf="product.productCategory">
                         <a [routerLink]="['/product-category', product.productCategory?.id, 'view']">{{ product.productCategory?.id }}</a>
                     </div>
                 </dd>
+                -->
             </dl>
 
+            <!-- Ajout des boutons retour et ajouter au panier-->
             <button type="submit"
                     (click)="previousState()"
                     class="btn btn-info">
                 <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span >Retour</span>
             </button>
 
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="shopping-cart"></fa-icon>&nbsp;<span >Ajouter au panier</span>
+            </button>
+
+
+            <!-- Le bouton éditer n'est visible que pour les administrateurs-->
+            <div *jhiHasAnyAuthority="'ROLE_ADMIN'">
             <button type="button"
                     [routerLink]="['/product', product.id, 'edit']"
                     class="btn btn-primary">
                 <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
             </button>
         </div>
+
+        </div>
+    
     </div>
 </div>

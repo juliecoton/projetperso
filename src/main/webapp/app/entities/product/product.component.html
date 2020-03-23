@@ -20,6 +20,8 @@
 
         <div *ngIf="products">
 
+            <!-- Tri des produits par nom ou prix-->
+
             <div class=" mb-2 d-flex justify-content-end align-items-center">
 
                 <span class="mx-2 col-1">Trier par</span>
@@ -53,13 +55,13 @@
                     </button>
                     -->
             
-                    <button type="button" class="btn btn-light" jhiSortBy="productCategory.id">
+                    <!-- <button type="button" class="btn btn-light" jhiSortBy="productCategory.id">
             
                         <span  >Catégorie</span>
             
                         <span class="fa fa-sort"></span>
             
-                    </button>
+                    </button> -->
             
                 </div>
             
@@ -116,6 +118,7 @@
                     </small>
                     --> 
 
+                    <!-- Ajout des boutons détails et ajouter au panier-->
                     <div>
                         <button type="submit"
                             [routerLink]="['/product' , product.id, 'view']"
@@ -138,7 +141,8 @@
                 </div>
 
 
-                    <div *jhiHasAnyAuthority="'ROLE_ADMIN'">
+                <!-- Les boutons modifier et supprimer ne sont visibles que pour les administrateurs-->    
+                <div *jhiHasAnyAuthority="'ROLE_ADMIN'">
 
                         <button type="submit"
                                 [routerLink]="['/product' , product.id, 'edit']"
