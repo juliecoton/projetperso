@@ -5,7 +5,7 @@ Main page styles
 .hipster {
   display: inline-block;
   width: 1500px;
-  height: 900px;
+  height: 750px;
   background: url('../../content/images/marie.jpg') no-repeat center top;
   background-size: contain;
 }
@@ -63,6 +63,30 @@ Main page styles
   width: 300px;
   height: 100px;
   background: url('../../content/images/cactus.gif') no-repeat center top;
+  background-size: contain;
+}
+
+.couvert {
+  display: inline-block;
+  width: 1000px;
+  height: 500px;
+  background: url('../../content/images/couvert.jpg') no-repeat center top;
+  background-size: contain;
+}
+
+.scrunchies {
+  display: inline-block;
+  width: 1000px;
+  height: 500px;
+  background: url('../../content/images/scrunchies.jpg') no-repeat center top;
+  background-size: contain;
+}
+
+.cotons {
+  display: inline-block;
+  width: 1000px;
+  height: 500px;
+  background: url('../../content/images/cotons.jpg') no-repeat center top;
   background-size: contain;
 }
 
@@ -143,6 +167,30 @@ section .section-title {
 }
 #footer ul.quick-links li:hover a i {
   font-weight: 700;
+}
+
+#lightbox {
+  background-color: #eee;
+  padding: 10px;
+  border-bottom: 2px solid #666;
+  border-right: 2px solid #666;
+}
+#lightboxDetails {
+  font-size: 0.8em;
+  padding-top: 0.4em;
+}
+#lightboxCaption {
+  float: left;
+}
+#keyboardMsg {
+  float: right;
+}
+
+#lightbox img {
+  border: none;
+}
+#overlay img {
+  border: none;
 }
 
 @media (max-width: 767px) {
