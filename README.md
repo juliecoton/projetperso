@@ -31,7 +31,7 @@ Lancer les commandes suivantes dans 2 terminaux différents pour créer le déve
 Npm est aussi utilisé pour gérer les dépendance CSS et JavaScript utilisées dans cette application. Vous pouvez améliorer les dépendance en spécifiant une nouvelle version dans [package.json](package.json) ou vous pouvez lancer `npm update` et `npm install`.
 Ajoutez le “help” sur chaque commande pour voir comment l’utiliser. Par exemple, `npm help update`.
 
-La commande ‘npm run’ listera tous les scripts disponibles pour lancer le projet.
+La commande `npm run` listera tous les scripts disponibles pour lancer le projet.
 
 
 ### Support PWA 
@@ -82,7 +82,7 @@ Note: There are still a few other things remaining to do for Leaflet that we won
 ### Utiliser le CLI Angular
 
 Vous pouvez aussi utiliser  [Angular CLI][] pour générer un code client personnalisé.
-Par exemple, la commande suivante 
+Par exemple, la commande suivante :
 
     ng generate component my-component
 
@@ -112,7 +112,7 @@ Référez-vous à [Using JHipster in production][] pour plus de détails.
 
 ### Faire le package war
 
-Pour faire le package war de votre application et la déployer sur un serveur d’application, lacez :
+Pour faire le package war de votre application et la déployer sur un serveur d’application, lancez :
 
     ./mvnw -Pprod,war clean verify
 
@@ -138,7 +138,7 @@ Sonar est utilisé pour analyser la qualité du code. Vous pouvez démarrer un s
 docker-compose -f src/main/docker/sonar.yml up -d
 ```
 
-Vous pouvez lancer une analyse Sonar en utilisant le scanner sonar (https://docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner) ou en utilisant le plugun maven.
+Vous pouvez lancer une analyse Sonar en utilisant le scanner sonar (https://docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner) ou en utilisant le plugin maven.
 
 Ensuite, lancer l’analyse Sonar :
 
@@ -153,12 +153,12 @@ Si vous avez de relancer la phase Sonar, assurez-vous de spécifier au moins la 
 ./mvnw initialize sonar:sonar
 ```
 
-or
+ou
 
 Pour plus d’information, référez-vous à  [Code quality page][].
 
 
-## Using Docker to simplify development (optional)
+## Utiliser Docker (optionnel)
 
 Vous pouvez utiliser Docker pour améliorer votre expérience de développement JHipster. Un nombre de configurations docker sont disponibles dans le dossier [src/main/docker](src/main/docker) pour lancer les services tiers requis.
 
